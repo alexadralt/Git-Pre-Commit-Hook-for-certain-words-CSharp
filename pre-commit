@@ -4,9 +4,7 @@
 # Checks the files to be committed for the presence of print_r(), var_dump() and die()
 # The array below can be extended for further checks
 
-checks[1]="var_dump("
-checks[2]="print_r("
-checks[3]="die"
+checks[1]="nocheckin"
 
 element_count=${#checks[@]}
 let "element_count = $element_count + 1"
@@ -24,7 +22,7 @@ do
     elif [ $(echo "$file" | grep 'added') ]; then
         FILE_ACTION="added"
     else 
-        EXTENSION=$(echo "$file" | grep ".php$")
+        EXTENSION=$(echo "$file" | grep ".cs$")
         if [ "$EXTENSION" != "" ]; then
 
             index=1
