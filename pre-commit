@@ -10,7 +10,7 @@ element_count=${#checks[@]}
 let "element_count = $element_count + 1"
 
 ROOT_DIR="$(pwd)/"
-LIST=$(git status | grep -e '.*\(modified\|added\|new file\)')
+LIST=$(git diff --name-only --cached)
 ERRORS_BUFFER=""
 for file in $LIST
 do
